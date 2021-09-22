@@ -8,14 +8,14 @@
     </button>
     <div class="collapse navbar-collapse" [collapse]="isCollapsed">
       <div class="navbar-nav ml-auto">
-        <a class="nav-item nav-link active" routerLink="/home">Home <span
+        <a class="nav-item nav-link active" routerLinkActive="active" routerLink="/home">Home <span
           class="sr-only">(current)</span></a>
-        <a class="nav-item nav-link" routerLink="/event">Események</a>
-        <a class="nav-item nav-link" routerLink="/ticket">Jegyek</a>
-        <a class="nav-item nav-link" routerLink="/about">Rólunk</a>
-        <a class="nav-item nav-link" routerLink="/login">Belépés</a>
+        <a class="nav-item nav-link" routerLinkActive="active" routerLink="/event/list">Események</a>
+        <a class="nav-item nav-link" routerLinkActive="active" routerLink="/ticket/list">Jegyek</a>
+        <a class="nav-item nav-link" routerLinkActive="active" routerLink="/about">Rólunk</a>
+        <a class="nav-item nav-link" routerLinkActive="active" routerLink="/user/login">Belépés</a>
         <a class="nav-item nav-link"  class="btn btn-sm align-middle btn-primary"
-        routerLink="/registration">Regisztráció</a>
+        routerLink="/user/registration">Regisztráció</a>
       </div>
     </div>
 
