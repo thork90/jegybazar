@@ -13,6 +13,8 @@ import { ProfileComponent } from './user/profile/profile.component';
 import { ProfileEditComponent } from './user/profile-edit/profile-edit.component';
 import { TicketListComponent } from './ticket/ticket-list/ticket-list.component';
 import { TicketDetailComponent } from './ticket/ticket-detail/ticket-detail.component';
+import { BidComponent } from './ticket/bid/bid.component';
+
 
 
 
@@ -21,7 +23,7 @@ const routes: Routes = [
     {
         path: 'event', component: EventComponent, children: [
             { path: 'list', component: EventListComponent },
-            { path: 'new', component: EventDetailComponent }, 
+            { path: 'new', component: EventDetailComponent },
             { path: ':id', component: EventDetailComponent }
         ]
     },
@@ -29,7 +31,7 @@ const routes: Routes = [
         path: 'ticket', component: TicketComponent, children: [
             { path: 'list', component: TicketListComponent },
             { path: 'new', component: TicketDetailComponent },
-            { path: ':id/bid', component: TicketDetailComponent }
+            { path: ':id/bid', component: BidComponent },
         ]
 
     },
@@ -63,6 +65,7 @@ export class AppRoutingModule {
         TicketDetailComponent,
         EventDetailComponent,
         TicketDetailComponent,
+        BidComponent,
         TicketComponent,
         AboutComponent,
         LoginComponent,
