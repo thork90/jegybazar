@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from '../app.component';
-import { CollapseModule } from 'ngx-bootstrap';
+import { AlertModule, CollapseModule } from 'ngx-bootstrap';
 import { NavbarComponent } from '../core/navbar/navbar.component';
 import { JumbotronComponent } from '../core/jumbotron/jumbotron.component';
 import { EventcardComponent } from '../event/eventcard/eventcard.component';
@@ -22,6 +22,8 @@ import { TicketDetailComponent } from '../ticket/ticket-detail/ticket-detail.com
 import { TicketListComponent } from '../ticket/ticket-list/ticket-list.component';
 import { TicketComponent } from '../ticket/ticket.component';
 import { AppRoutingModule } from '../app-routing.module';
+import { EventService } from '../shared/event.service';
+import { UserService } from '../shared/user.service';
 
 @NgModule({
   declarations: [
@@ -36,9 +38,10 @@ import { AppRoutingModule } from '../app-routing.module';
   imports: [
     BrowserModule,
     CollapseModule.forRoot(),
+    AlertModule.forRoot(),
     AppRoutingModule
   ],
-  providers: [],
+  providers: [EventService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
