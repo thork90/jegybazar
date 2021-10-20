@@ -1,34 +1,37 @@
 export class UserModel {
-    id: number;
-    name: string;
-    email: string;
-    address: string;
-    dateOfBirth: string;
-    gender: string;
+  id: number;
+  name: string;
+  email: string;
+  address: string;
+  dateOfBirth: string;
+  gender: string;
 
-    constructor(param?: UserModel) {
-        if (param) {
-            Object.assign(this, param);
-
-        }
+  constructor(param?: UserModel) {
+    if (param) {
+      Object.assign(this, param);
     }
+  }
 
+  // UserModel.exampleUser
+  static get exampleUser(): UserModel {
+    return {
+      id: 0,
+      name: 'Legyek Réka Matlida',
+      email: 'legyekrekamatilda@valami.com',
+      address: 'Futrinka utca',
+      dateOfBirth: '2001.01.01',
+      gender: 'female'
+    };
+  }
 
-
-    static get exampleUser(): UserModel {
-        return {
-            id: 0,
-            name: 'usermodel name',
-            email: 'usermodel email',
-            address: 'usermodel adress',
-            dateOfBirth: '1990.08.26',
-            gender: 'male'
-
-
-
-
-        };
-    }
+  static get emptyUser(): UserModel {
+    return {
+      id: 0,
+      name: '',
+      email: '',
+      address: '',
+      dateOfBirth: '',
+      gender: ''
+    };
+  }
 }
-
-

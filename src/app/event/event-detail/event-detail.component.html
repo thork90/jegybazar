@@ -5,7 +5,8 @@
 
     <div class="card-header">
       <div class="bg-light text-center">
-        <h3>Új esemény létrehozása</h3>
+        <h3 *ngIf="!event.id">Új esemény létrehozása</h3>
+        
       </div>
     </div>
     <!--card-body-->
@@ -22,10 +23,9 @@
       </div>
 
       <div class="form-group row">
-        <img class="img-fluid mx-auto" src="assets/newevent.png" alt="">
-        <div class="form-group mx-auto mt-3">
-          <label for="kep">Válassz képet az eseményhez</label>
-          <input type="file" class="form-control-file" id="kep">
+        <div class="form-group  mt-3">
+          <label for="pictureUrl">Válassz képet az eseményhez</label>
+          <input type="text" class="form-control mb-3" id="pictureUrl" placeholder="Eseményhez tartozó úrl">
         </div>
       </div>
 

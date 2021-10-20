@@ -14,13 +14,14 @@
         <a class="nav-item nav-link" routerLinkActive="active" routerLink="/about">Rólunk</a>
 
         <ng-container *ngIf="!userService.isLoggedin; else loggedInBlock">
-        <a class="nav-item nav-link" routerLinkActive="active" routerLink="/user/login">Belépés</a>
-        <a class="nav-item nav-link" class="btn btn-sm align-middle btn-primary"
-          routerLink="/user/registration">Regisztráció</a>
+          <a class="nav-item nav-link" routerLinkActive="active" routerLink="/user/login">Belépés</a>
+          <a class="nav-item nav-link" class="btn btn-sm align-middle btn-primary"
+            routerLink="/user/registration">Regisztráció</a>
         </ng-container>
 
- <ng-template #loggedInBlock>       <a class="nav-item nav-link" routerLinkActive="active" (click)="logout()">Logout</a>
- </ng-template>
+        <ng-template #loggedInBlock> <a class="nav-item nav-link" routerLinkActive="active"
+            (click)="logout()">Logout</a>
+        </ng-template>
       </div>
     </div>
 
