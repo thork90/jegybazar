@@ -5,37 +5,51 @@
 
     <div class="card-header">
       <div class="bg-light text-center">
-        <h3 *ngIf="!event.id">Új esemény létrehozása</h3>
-        
+        <h3 *ngIf="!event.id; else modify">Új esemény létrehozása</h3>
+        <ng-template #modify>
+          <h3> Esemény szerkesztése </h3>
+        </ng-template>
       </div>
     </div>
     <!--card-body-->
     <div class="card-body">
-
-      <div class="form-group">
-        <label for="esemeny">Esemény címe:</label>
-        <input type="text" class="form-control mb-3" id="esemeny" placeholder="Esemény címe">
-      </div>
-
-      <div class="form-group">
-        <label for="idopont">Esemény időpontja</label>
-        <input type="date" class="form-control mb-3" id="idopont" placeholder="Esemény időpontja">
-      </div>
-
-      <div class="form-group row">
-        <div class="form-group  mt-3">
-          <label for="pictureUrl">Válassz képet az eseményhez</label>
-          <input type="text" class="form-control mb-3" id="pictureUrl" placeholder="Eseményhez tartozó úrl">
+      <form #eventForm="ngForm" (submit)="onSubmit(eventForm.value)">
+        <div class="form-group">
+          <label for="esemeny">Esemény címe:</label>
+          <input type="text" class="form-control mb-3" id="esemeny" placeholder="Esemény címe" [(ngModel)]="event.name"
+            name="name" required>
         </div>
-      </div>
 
-      <div class="form-group">
-        <label for="leiras">Esemény leírása</label>
-        <textarea class="form-control" placeholder="Esemény leírása" id="leiras"></textarea>
-      </div>
-      <div class="text-center mb-3">
-        <input class="btn btn-primary btn-lg" type="submit" routerLink="../list" value="létrehozás">
-      </div>
+        <div class="form-group">
+          <label for="idopont">Esemény időpontja</label>
+          <input type="date" class="form-control mb-3" id="idopont" placeholder="Esemény időpontja"
+            [(ngModel)]="event.date" name="date">
+
+        </div>
+
+        <div class="form-group row">
+          <div class="form-group  mt-3">
+            <label for="pictureURL">Válassz képet az eseményhez</label>
+            <input type="text" class="form-control mb-3" id="pictureURL" placeholder="Eseményhez tartozó úrl"
+              [(ngModel)]="event.pictureURL" name="pictureURL">
+
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="leiras">Esemény leírása</label>
+          <textarea class="form-control" placeholder="Esemény leírása" id="leiras" [(ngModel)]="event.description"
+            name="description">
+        ></textarea>
+        </div>
+        <div class="text-center mb-3">
+          <button class="btn btn-primary btn-lg" type="submit" 
+          [disabled] = "eventForm.invalid"
+          value="létrehozás">
+          save
+          </button>
+        </div>
+      </form>
     </div>
   </div>
 

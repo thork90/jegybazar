@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute , Router} from '@angular/router';
 import { EventService } from '../../shared/event.service';
 import { EventModel } from '../../shared/event-model';
 
@@ -12,7 +12,8 @@ export class EventDetailComponent implements OnInit {
   event: EventModel;
 
   constructor(private _route: ActivatedRoute,
-    private _eventService: EventService) {
+    private _eventService: EventService,
+    private _router: Router) {
   }
 
 
@@ -30,6 +31,18 @@ export class EventDetailComponent implements OnInit {
       this.event = new EventModel(EventModel.emptyEvent);
       console.log('nem kaptunk eventetet, uh csinaltunk gyorsan');
     }
+  }
+
+
+  onSubmit(form) {
+    if (this.event.id) {
+      this._eventService.update(this.event);
+    } else {
+      this._eventService.create(this.event);
+    }
+
+this._router.navigate(['event/list']);
+
   }
 
 }
